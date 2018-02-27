@@ -87,11 +87,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pressedButton(_ sender: UIButton) {
-        if (sender.tag%2==1) == question.answer  {
+        if (sender.tag%2 == 1) == question.answer  {
+            ProgressHUD.showSuccess("Correct")
             score += 1
         }else{
+            ProgressHUD.showError("Wrong")
             score -= 1
         }
+        NSLog("Answer: \(sender.tag%2 == 1) Actual: \(question.answer)")
         progress += 1
         
         nextQuestion()
